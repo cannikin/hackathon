@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Device:</b>
+  <%= @hit.device_id %>
+</p>
+
+<p>
+  <b>Card:</b>
+  <%= @hit.card_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_hit_path(@hit) %> |
+<%= link_to 'Back', hits_path %>

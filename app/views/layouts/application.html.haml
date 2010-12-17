@@ -1,0 +1,35 @@
+!!!
+%html
+  %head
+    %title
+      Localink
+    = stylesheet_link_tag 'reset_fonts','shared',controller.controller_name
+    = javascript_include_tag :defaults
+    = csrf_meta_tag
+    
+  %body
+    #header
+      %h1
+        - if logged_in? 
+          - if current_user.customer?
+            = link_to '<span>Active LocaLink</span>'.html_safe, customer_path
+          - else
+            = link_to '<span>Active LocaLink</span>'.html_safe, business_path
+        - else
+          = link_to '<span>Active LocaLink</span>'.html_safe, login_path
+      - if logged_in?
+        #login
+          %ul
+            %li.name= "Welcome back, #{current_user.first_name}"
+            %li= link_to 'My Account', '#'
+            %li= link_to 'Logout', logout_path
+    
+    - if flash[:notice]
+      #flash= flash[:notice]
+      
+    #main
+        
+      = yield
+    #footer
+      Copyright &copy;2010 Hackathon Inc.
+      

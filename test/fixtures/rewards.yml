@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  value: MyString
+  description: MyText
+  on_visit: 1
+  every_visit: 1
+
+two:
+  value: MyString
+  description: MyText
+  on_visit: 1
+  every_visit: 1

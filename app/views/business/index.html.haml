@@ -1,0 +1,67 @@
+%h2.business_logo
+  %span= @business.name
+
+#my_rewards
+  %h3 My rewards
+  .table
+    %table
+      %tr
+        %th Title
+        %th When
+        %th
+
+      - @rewards.each do |reward| 
+        %tr
+          %td= reward.title
+          %td
+            - if reward.on_visit
+              = "On customer's #{ActiveSupport::Inflector.ordinalize(reward.on_visit)} visit"
+            - else
+              = "Every #{ActiveSupport::Inflector.ordinalize(reward.every_visit)} visit"
+          %td= link_to 'Edit', edit_reward_path(reward)
+          
+  .save
+    = link_to 'Create a Reward', new_reward_path, :class => 'submit'
+
+
+#latest_rewards.left
+  %h3 Latest Rewards
+  .table
+    %table
+      %tr
+        %th Who
+        %th What
+        %th When
+
+      - @latest_notifications.each do |notification| 
+        %tr
+          %td
+            - if notification.hit.card.user
+              = link_to(notification.hit.card.user.name, user_path(notification.hit.card.user))
+            - else
+              Unclaimed
+          %td= notification.reward.title
+          %td= time_ago_in_words(notification.created_at) + ' ago'
+
+#top_customers.right
+  %h3 Top Customers
+  .table
+    %table
+      %tr
+        %th
+        %th Who
+        %th Last Visit
+      - @top_hits.each_with_index do |hit,i| 
+        %tr
+          %td= "#{i+1}."
+          %td
+            - if Card.find(hit['card_id']).user
+              - user = Card.find(hit['card_id']).user
+              = link_to(user.name, user_path(user))
+            - else
+              Unclaimed
+          %td= time_ago_in_words(Hit.where(:card_id => hit['card_id']).order('created_at desc').limit(1).first.created_at) + " ago"
+        
+#graphs
+  = image_tag 'graph1.png'
+  

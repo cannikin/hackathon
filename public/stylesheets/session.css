@@ -1,0 +1,30 @@
+form {
+  text-align: center; }
+  form fieldset {
+    vertical-align: top;
+    width: 350px;
+    height: 225px;
+    background-color: #d1e3e8;
+    display: inline;
+    border: none;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    padding: 1em;
+    margin: 0 1em;
+    text-align: left; }
+    form fieldset input {
+      display: block; }
+    form fieldset input[type=submit] {
+      margin: 1em 0 0;
+      width: auto; }
+
+span.example {
+  margin-top: -0.5em;
+  margin-bottom: 1em; }
+
+#signup_form {
+  text-align: left; }
+
+#card_signup img {
+  vertical-align: middle;
+  margin: 0 0 0.2em 1em; }

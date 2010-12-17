@@ -1,0 +1,25 @@
+<h1>Listing hits</h1>
+
+<table>
+  <tr>
+    <th>Device</th>
+    <th>Card</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @hits.each do |hit| %>
+  <tr>
+    <td><%= hit.device_id %></td>
+    <td><%= hit.card_id %></td>
+    <td><%= link_to 'Show', hit %></td>
+    <td><%= link_to 'Edit', edit_hit_path(hit) %></td>
+    <td><%= link_to 'Destroy', hit, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Hit', new_hit_path %>

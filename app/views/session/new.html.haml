@@ -1,0 +1,25 @@
+%h2 Welcome to Active LocaLink
+%p To get started earning rewards just fill out the form below!
+
+= form_tag signup_go_path, :id => 'signup_form' do |form| 
+  = label_tag 'Card Number'
+  = text_field_tag :card_id, @card.uid
+  
+  = label_tag :first_name
+  = text_field_tag 'user[first_name]'
+  
+  = label_tag :last_name
+  = text_field_tag 'user[last_name]'
+  
+  = label_tag :email
+  = text_field_tag 'user[email]'
+  
+  = label_tag :password
+  = password_field_tag 'user[password]'
+  
+  = label_tag :phone_number
+  = password_field_tag 'user[phone]'
+  %span.example Get your rewards via text message!
+  
+  .save
+    = submit_tag 'Create my Account'

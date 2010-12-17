@@ -1,0 +1,18 @@
+= form_tag login_submit_path do
+  %fieldset(id="card_signup")
+    %h2 First time here?
+    = label_tag 'Enter your unique card number'
+    = image_tag 'card.png'
+    = text_field_tag :card_id
+    .save
+      = submit_tag 'Create my Account'
+    
+  %fieldset(id="login")
+    %h2 Welcome Back!
+    = label_tag :email
+    = text_field_tag :email
+    = label_tag :password
+    = password_field_tag :password
+    .save
+      = submit_tag 'Log In'
+  

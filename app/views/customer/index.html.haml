@@ -1,0 +1,61 @@
+%h2 Welcome Back!
+      
+%h3 My Rewards
+.table
+  %table
+    %tr
+      %th Where
+      %th What
+      %th When
+
+    - current_user.hits.each do |hit| 
+      - if hit.reward
+        %tr
+          %td.where= hit.reward.device.business.name
+          %td.what= hit.reward.title
+          %td.when= time_ago_in_words(hit.created_at) + " ago"
+
+%h3 My Checkins
+.table
+  %table
+    %tr
+      %th Where
+      %th When
+      %th
+    - current_user.hits[0..5].each do |hit| 
+      %tr
+        %td.where= hit.device.business.name
+        %td.when= time_ago_in_words(hit.created_at) + " ago"
+        %td.review= link_to 'Write a Review', '#'
+        
+.left
+  %h3 Nearby Shops
+  %p Some other stores near you that you may like
+  .table
+    %table
+      %tr
+        %td= link_to 'Sir Run-a-lot', '#'
+      %tr
+        %td= link_to 'The Shoe Shop', '#'
+      %tr
+        %td= link_to 'Shin Splints', '#'
+      %tr
+        %td= link_to 'Run for Your Life', '#'
+      %tr
+        %td= link_to 'The Good Foot Store', '#'
+      
+.right
+  %h3 Upcoming Events
+  %p Register for one of these upcoming events near you
+  .table
+    %table
+      %tr
+        %td= link_to 'Carlsbad 5000', '#'
+      %tr
+        %td= link_to 'La Jolla Half Marathon', '#'
+      %tr
+        %td= link_to 'San Diego Triathon Classic', '#'
+      %tr
+        %td= link_to 'Seal Beach 5/10K Run-Walk', '#'
+      %tr
+        %td= link_to 'San Diego Resolution Run', '#'

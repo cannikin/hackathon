@@ -1,0 +1,38 @@
+= form_for(@reward) do |f| 
+
+  = f.hidden_field :device_id
+  
+  - if @reward.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@reward.errors.count, "error")
+        prohibited this reward from being saved:
+      %ul
+        - @reward.errors.full_messages.each do |msg| 
+          %li
+            = msg
+
+  .left
+    = f.label :title
+    = f.text_field :title
+    %span.example Ex: 20% off your next purchase!
+    
+    = f.label :description
+    = f.text_area :description
+    %span.example What the customer is getting this reward. Ex: For being a loyal customer!
+    
+  .right
+    = f.label :value
+    = f.text_field :value
+    %span.example What this reward is worth. Ex. 25% Off, FREE, Buy One Get One
+
+    = f.label :on_visit
+    = f.text_field :on_visit
+    %span.example This is a one-time reward on only the 1st visit, for example
+    
+    = f.label :every_visit
+    = f.text_field :every_visit
+    %span.example This is for a repeating reward every 5th visit, for example
+  .save
+    = f.submit
+

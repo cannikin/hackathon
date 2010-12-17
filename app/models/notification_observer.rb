@@ -8,10 +8,10 @@ class NotificationObserver < ActiveRecord::Observer
   FROM = '4155992671';
 
   def after_create(notification)
-    if notification.hit.card.user
+    if notification.hit.card.user and notification.hit.card.user.phone
       account = Twilio::RestAccount.new(ACCOUNT_SID, ACCOUNT_TOKEN)
       response = account.request("/2010-04-01/Accounts/#{ACCOUNT_SID}/SMS/Messages",'POST',{'From' => FROM, 'To' => notification.hit.card.user.phone, 'Body' => "From #{notification.reward.device.business.name}: You just earned #{notification.reward.title}"})
-      puts response.inspect
+      puts response.body
     end
   end
       

@@ -8,6 +8,7 @@
       %tr
         %th Title
         %th When
+        %th.count How Many
         %th
 
       - @rewards.each do |reward| 
@@ -18,6 +19,7 @@
               = "On customer's #{ActiveSupport::Inflector.ordinalize(reward.on_visit)} visit"
             - else
               = "Every #{ActiveSupport::Inflector.ordinalize(reward.every_visit)} visit"
+          %td.count= reward.notifications.count
           %td= link_to 'Edit', edit_reward_path(reward)
           
   .save
@@ -50,6 +52,7 @@
       %tr
         %th
         %th Who
+        %th.count Checkins
         %th Last Visit
       - @top_hits.each_with_index do |hit,i| 
         %tr
@@ -60,6 +63,7 @@
               = link_to(user.name, user_path(user))
             - else
               Unclaimed
+          %td.count= hit['total']
           %td= time_ago_in_words(Hit.where(:card_id => hit['card_id']).order('created_at desc').limit(1).first.created_at) + " ago"
         
 #graphs

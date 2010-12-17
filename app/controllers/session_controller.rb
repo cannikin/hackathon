@@ -25,6 +25,9 @@ class SessionController < ApplicationController
         else
           redirect_to business_path
         end
+      else
+        flash[:notice] = 'Your username or password was incorrect, please try again!'
+        render :index
       end
     else
       flash[:notice] = 'Please enter both username and password!'

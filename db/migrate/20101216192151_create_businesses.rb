@@ -5,8 +5,6 @@ class CreateBusinesses < ActiveRecord::Migration
 
       t.timestamps
     end
-    
-    Business.create :name => 'Running Shack'
   end
 
   def self.down

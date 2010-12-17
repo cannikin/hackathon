@@ -6,9 +6,6 @@ class CreateWallets < ActiveRecord::Migration
 
       t.timestamps
     end
-    
-    Wallet.create :user_id => 1, :card_id => 1
-    
   end
 
   def self.down

@@ -3,7 +3,6 @@ html
 
 body
   background-color: #BCD2E0
-  margin: 1em
   font-family: Lucida Grande, Trebuchet MS, Verdana, Helvetica, Arial, sans-serif
 
 a
@@ -16,6 +15,8 @@ a
   
 #header
   margin-bottom: 2em
+  background-color: #D7ECF2
+  padding: 1em
   h1
     margin: 0 auto 1em
     a
@@ -64,8 +65,11 @@ table
     border-bottom: 3px double #69B0D6
   td
     border-bottom: 2px solid #BAD7E7
-    &.where
-      width: 20%
+  td.where, th.where
+    width: 30%
+    white-space: nowrap
+  td.count, th.count
+    text-align: center
   tr:last-child
     td
       border-bottom: none
@@ -113,6 +117,9 @@ span.example
   
 .save
   text-align: center
+  
+div.clear
+  clear: both
   
 #footer
   margin: 2em 0

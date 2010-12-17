@@ -9,10 +9,6 @@ class CreateUsers < ActiveRecord::Migration
 
       t.timestamps
     end
-    
-    User.create :first_name => 'Rob', :last_name => 'Cameron', :email => 'cannikinn@gmail.com', :password => 'bosco', :phone => '7606725123'
-    User.create :first_name => 'Rob', :last_name => 'Cameron', :email => 'rob.cameron@active.com', :password => 'bosco'
-    
   end
 
   def self.down

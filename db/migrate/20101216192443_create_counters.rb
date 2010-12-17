@@ -6,9 +6,6 @@ class CreateCounters < ActiveRecord::Migration
 
       t.timestamps
     end
-    
-    Counter.create :business_id => 1, :device_id => 1
-    
   end
 
   def self.down

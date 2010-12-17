@@ -3,7 +3,6 @@ html {
 
 body {
   background-color: #bcd2e0;
-  margin: 1em;
   font-family: Lucida Grande, Trebuchet MS, Verdana, Helvetica, Arial, sans-serif; }
 
 a {
@@ -14,7 +13,9 @@ a {
     background-color: #bcd6e3; }
 
 #header {
-  margin-bottom: 2em; }
+  margin-bottom: 2em;
+  background-color: #d7ecf2;
+  padding: 1em; }
   #header h1 {
     margin: 0 auto 1em; }
     #header h1 a {
@@ -63,8 +64,11 @@ table {
     border-bottom: 3px double #69b0d6; }
   table td {
     border-bottom: 2px solid #bad7e7; }
-    table td.where {
-      width: 20%; }
+  table td.where, table th.where {
+    width: 30%;
+    white-space: nowrap; }
+  table td.count, table th.count {
+    text-align: center; }
   table tr:last-child td {
     border-bottom: none; }
 
@@ -111,6 +115,9 @@ span.example {
 
 .save {
   text-align: center; }
+
+div.clear {
+  clear: both; }
 
 #footer {
   margin: 2em 0;

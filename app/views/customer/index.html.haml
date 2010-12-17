@@ -1,61 +1,75 @@
 %h2 Welcome Back!
-      
-%h3 My Rewards
-.table
-  %table
-    %tr
-      %th Where
-      %th What
-      %th When
-
-    - current_user.hits.each do |hit| 
-      - if hit.reward
-        %tr
-          %td.where= hit.reward.device.business.name
-          %td.what= hit.reward.title
-          %td.when= time_ago_in_words(hit.created_at) + " ago"
-
-%h3 My Checkins
-.table
-  %table
-    %tr
-      %th Where
-      %th When
-      %th
-    - current_user.hits[0..5].each do |hit| 
+  
+#my_rewards.left    
+  %h3 My Rewards
+  .table
+    %table
       %tr
-        %td.where= hit.device.business.name
-        %td.when= time_ago_in_words(hit.created_at) + " ago"
-        %td.review= link_to 'Write a Review', '#'
+        %th Where
+        %th What
+        %th When
+
+      - current_user.hits.each do |hit| 
+        - if hit.reward
+          %tr
+            %td.where= hit.reward.device.business.name
+            %td.what= hit.reward.title
+            %td.when= time_ago_in_words(hit.created_at) + " ago"
+
+#my_checkins.right
+  %h3 My Checkins
+  .table
+    %table
+      %tr
+        %th Where
+        %th When
+        %th
+      - current_user.hits[0..5].each do |hit| 
+        %tr
+          %td.where= hit.device.business.name
+          %td.when= time_ago_in_words(hit.created_at) + " ago"
+          %td.review= link_to 'Write a Review', '#'
         
-.left
+%div.clear
+
+#nearby_shops.left
   %h3 Nearby Shops
   %p Some other stores near you that you may like
   .table
     %table
       %tr
         %td= link_to 'Sir Run-a-lot', '#'
+        %td 10% off 1st visit
       %tr
         %td= link_to 'The Shoe Shop', '#'
+        %td Free pedometer on 10th visit
       %tr
         %td= link_to 'Shin Splints', '#'
+        %td Half off your 5th visit
       %tr
         %td= link_to 'Run for Your Life', '#'
+        %td $5 donation on each visit
       %tr
         %td= link_to 'The Good Foot Store', '#'
+        %td Free movie tickets on 1st visit
       
-.right
+#upcoming_events.right
   %h3 Upcoming Events
   %p Register for one of these upcoming events near you
   .table
     %table
       %tr
         %td= link_to 'Carlsbad 5000', '#'
+        %td March 5th, 2011
       %tr
         %td= link_to 'La Jolla Half Marathon', '#'
+        %td April 16th, 2011
       %tr
         %td= link_to 'San Diego Triathon Classic', '#'
+        %td June 14th, 2011
       %tr
         %td= link_to 'Seal Beach 5/10K Run-Walk', '#'
+        %td July 9th, 2011
       %tr
         %td= link_to 'San Diego Resolution Run', '#'
+        %td August 22nd, 2011

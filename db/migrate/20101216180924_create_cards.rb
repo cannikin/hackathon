@@ -5,8 +5,6 @@ class CreateCards < ActiveRecord::Migration
       
       t.timestamps
     end
-    
-    Card.create :uid => '0f0302a39f'
   end
 
   def self.down

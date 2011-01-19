@@ -9,7 +9,7 @@
         %th What
         %th When
 
-      - current_user.hits.each do |hit| 
+      - @rewards.each do |hit| 
         - if hit.reward
           %tr
             %td.where= hit.reward.device.business.name
@@ -24,7 +24,7 @@
         %th Where
         %th When
         %th
-      - current_user.hits[0..5].each do |hit| 
+      - @checkins.each do |hit| 
         %tr
           %td.where= hit.device.business.name
           %td.when= time_ago_in_words(hit.created_at) + " ago"

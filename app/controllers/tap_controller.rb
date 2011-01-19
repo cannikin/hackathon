@@ -4,8 +4,8 @@ class TapController < ApplicationController
   
   # this is where a device logs a card to
   def go
-    device = Device.find_or_create_by_uid(params[:device].downcase)
-    card = Card.find_or_create_by_uid(params[:id].downcase)
+    device = Device.find_or_create_by_uid(params[:device_id].downcase)
+    card = Card.find_or_create_by_uid(params[:card_id].downcase)
     hit = Hit.create(:device => device, :card => card)
     
     check_for_rewards(hit)
